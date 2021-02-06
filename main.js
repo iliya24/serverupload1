@@ -38,10 +38,10 @@ app.route('/upload').post((req, res, next) => {
 
         // On finish of the upload
         fstream.on('close', () => {
-        //    console.log(`Upload of '${filename}' finished`);
+            console.log(`Upload of '${filename}' finished`);
             res.send('ok');
          
-            console.log(`Upload of '${filename}' bucket started`);
+           // console.log(`Upload of '${filename}' bucket started`);
             // const t =   storage.bucket(bucketname).upload(uploadPath+"//"+filename).then(result=>
             //     {
             //         console.log(`Upload of '${filename}' bucket done`);
