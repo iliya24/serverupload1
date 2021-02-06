@@ -3,6 +3,7 @@ const busboy = require('connect-busboy');   // Middleware to handle the file upl
 const path = require('path');               // Used for manipulation with path
 const fs = require('fs-extra');             // Classic fs
 const { Storage } = require('@google-cloud/storage');
+require('log-timestamp');
 
 var cors = require('cors')
 const storage = new Storage({ keyFilename: './googlekey.json' });
@@ -61,6 +62,8 @@ app.route('/upload').post((req, res, next) => {
  * Serve the basic index.html with upload form
  */
 app.route('/').get((req, res) => {
+    console.log('Before log-timestamp');
+
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write('<form action="upload" method="post" enctype="multipart/form-data">');
     res.write('<input type="file" name="fileToUpload"><br>');
