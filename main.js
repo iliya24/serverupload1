@@ -42,15 +42,15 @@ app.route('/upload').post((req, res, next) => {
             res.send('ok');
          
             console.log(`Upload of '${filename}' bucket started`);
-            const t =   storage.bucket(bucketname).upload(uploadPath+"//"+filename).then(result=>
-                {
-                    console.log(`Upload of '${filename}' bucket done`);
-                    console.log(result);
+            // const t =   storage.bucket(bucketname).upload(uploadPath+"//"+filename).then(result=>
+            //     {
+            //         console.log(`Upload of '${filename}' bucket done`);
+            //         console.log(result);
                     
-                }).catch(error=>
-                    { console.log(error);
+            //     }).catch(error=>
+            //         { console.log(error);
                        
-                    });
+            //         });
            
         });
     });
