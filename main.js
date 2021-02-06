@@ -18,14 +18,14 @@ app.use(busboy({
     highWaterMark: 2 * 1024 * 1024, // Set 2MiB buffer
 })); // Insert the busboy middle-ware
 
-const uploadPath = path.join(__dirname, 'fu/'); // Register the upload path
+const uploadPath = path.join(__dirname, 'mounttest/'); // Register the upload path
 fs.ensureDir(uploadPath); // Make sure that he upload path exits
 
 
 /**
  * Create route /upload which handles the post request
  */
-app.route('/upload').post((req, res, next) => {
+app.route('/upload').post(async (req, res, next) => {
     req.pipe(req.busboy); // Pipe it trough busboy
 
     req.busboy.on('file', (fieldname, file, filename) => {
